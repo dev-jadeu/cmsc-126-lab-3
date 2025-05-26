@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Russo+One&family=Updock&display=swap');
+
 :root {
     --pastel-blue: #A7C7E7;
     --pastel-pink: #FFB6C1;
@@ -5,7 +7,7 @@
     --pastel-yellow: #F0E68C;
     --pastel-purple: #E6E6FA;
     --pastel-orange: #FFDAB9;
-    --background: #F8F9FA;
+    --background: #8ef9b9;
     --text: #2C3E50;
 }
 
@@ -16,7 +18,7 @@
 }
 
 body {
-    font-family: 'Roboto Mono', monospace;
+    font-family: 'Russo One', sans-serif;
     background-color: var(--background);
     color: var(--text);
     line-height: 1.6;
@@ -29,9 +31,11 @@ body {
 }
 
 h1 {
+    font-family: 'Russo One', sans-serif;
     text-align: center;
     color: var(--text);
     margin-bottom: 2rem;
+    font-size: 3rem;
 }
 
 .controls {
@@ -67,7 +71,7 @@ select:hover, button:hover {
 }
 
 button {
-    font-family: 'Roboto Mono', monospace;
+    font-family: 'Russo One', sans-serif;
     background-color: var(--pastel-blue);
     color: white;
     border: none;
@@ -88,7 +92,7 @@ button:disabled {
 }
 
 select {
-    font-family: 'Roboto Mono', monospace;
+    font-family: 'Russo One', sans-serif;
 }
 
 @keyframes pulse {
@@ -204,9 +208,9 @@ select {
     top: 20px;
     left: 50%;
     transform: translateX(-50%);
-    background-color: var(--pastel-pink);
-    color: var(--text);
-    padding: 1rem 2rem;
+    background-color: #ed67b5;
+    color: white;
+    padding: 1rem 1rem;
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     display: none;
