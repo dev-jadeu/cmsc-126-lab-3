@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pathfinding Visualizer</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="notification" id="notification"></div>
+    <div class="container">
+        <h1>PATHFINDING VISUALIZER</h1>
+
+        <div class="main-wrapper">
+            <div class="controls">
+                <div class="algorithm-select">
+                    <label for="algorithm">Algorithm:</label>
+                    <select id="algorithm">
+                        <option value="dijkstra">Dijkstra's Algorithm</option>
+                        <option value="astar">A* Search</option>
+                    </select>
+                </div>
+
+                <div class="speed-control">
+                    <label for="speed">Speed:</label>
+                    <select id="speed">
+                        <option value="slow">Slow</option>
+                        <option value="medium" selected>Medium</option>
+                        <option value="fast">Fast</option>
+                    </select>
+                </div>
+
+                <div class="grid-size">
+                    <label for="gridSize">Grid Size:</label>
+                    <select id="gridSize">
+                        <option value="10" selected>10x10</option>
+                        <option value="15">15x15</option>
+                        <option value="20">20x20</option>
+                    </select>
+                </div>
+
+                <button id="findPath">Find Path</button>
+                <button id="clearGrid">Clear Grid</button>
+
+                <div class="legend">
+                    <div class="legend-item">
+                        <div class="color-box start"></div>
+                        <span>Start</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="color-box end"></div>
+                        <span>End</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="color-box wall"></div>
+                        <span>Wall</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="color-box visited"></div>
+                        <span>Visited</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="color-box path"></div>
+                        <span>Path</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="main-content">
+                <div class="grid-container" id="grid"></div>
+            </div>
+        </div>
+    </div>
+    <script src="js/Node.js"></script>
+    <script src="js/Grid.js"></script>
+    <script src="js/Algorithm.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

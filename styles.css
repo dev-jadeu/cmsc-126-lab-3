@@ -1,0 +1,230 @@
+:root {
+    --pastel-blue: #A7C7E7;
+    --pastel-pink: #FFB6C1;
+    --pastel-green: #98FB98;
+    --pastel-yellow: #F0E68C;
+    --pastel-purple: #E6E6FA;
+    --pastel-orange: #FFDAB9;
+    --background: #F8F9FA;
+    --text: #2C3E50;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto Mono', monospace;
+    background-color: var(--background);
+    color: var(--text);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+h1 {
+    text-align: center;
+    color: var(--text);
+    margin-bottom: 2rem;
+}
+
+.controls {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 2rem;
+    padding: 1rem;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.controls > div {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+select, button {
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--pastel-blue);
+    border-radius: 5px;
+    background-color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+select:hover, button:hover {
+    background-color: var(--pastel-blue);
+    color: white;
+}
+
+button {
+    font-family: 'Roboto Mono', monospace;
+    background-color: var(--pastel-blue);
+    color: white;
+    border: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background-color: #8BB4E3;
+}
+
+button:disabled {
+    background-color: var(--pastel-purple);
+    color: black;
+    cursor: not-allowed;
+    opacity: 0.8;
+    animation: pulse 1.5s infinite;
+}
+
+select {
+    font-family: 'Roboto Mono', monospace;
+}
+
+@keyframes pulse {
+    0% {
+        opacity: 0.8;
+    }
+    50% {
+        opacity: 0.6;
+    }
+    100% {
+        opacity: 0.8;
+    }
+}
+
+.grid-container {
+    display: grid;
+    gap: 1px;
+    background-color: var(--pastel-blue);
+    padding: 1px;
+    margin: 0 auto;
+    max-width: 800px;
+    box-shadow: 0 0 10px var(--pastel-blue);
+}
+
+.cell {
+    width: 100%;
+    aspect-ratio: 1;
+    background-color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border-radius: 10px;
+}
+
+.cell.start {
+    background-color: var(--pastel-green);
+}
+
+.cell.end {
+    background-color: var(--pastel-pink);
+}
+
+.cell.wall {
+    background-color: var(--pastel-purple);
+}
+
+.cell.visited {
+    background-color: var(--pastel-blue);
+    animation: visitedAnimation 0.5s ease-in-out;
+}
+
+.cell.path {
+    background-color: var(--pastel-yellow);
+    animation: pathAnimation 0.5s ease-in-out;
+}
+
+.legend {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 1rem;
+    flex-wrap: wrap;
+    font-size: 15px;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.color-box {
+    width: 20px;
+    height: 20px;
+    border-radius: 3px;
+}
+
+.color-box.start { background-color: var(--pastel-green); }
+.color-box.end { background-color: var(--pastel-pink); }
+.color-box.wall { background-color: var(--pastel-purple); }
+.color-box.visited { background-color: var(--pastel-blue); }
+.color-box.path { background-color: var(--pastel-yellow); }
+
+@keyframes visitedAnimation {
+    0% {
+        transform: scale(0.3);
+        background-color: var(--pastel-orange);
+    }
+    50% {
+        background-color: var(--pastel-blue);
+    }
+    100% {
+        transform: scale(1);
+        background-color: var(--pastel-blue);
+    }
+}
+
+@keyframes pathAnimation {
+    0% {
+        transform: scale(0.3);
+        background-color: var(--pastel-orange);
+    }
+    50% {
+        background-color: var(--pastel-yellow);
+    }
+    100% {
+        transform: scale(1);
+        background-color: var(--pastel-yellow);
+    }
+}
+
+.notification {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--pastel-pink);
+    color: var(--text);
+    padding: 1rem 2rem;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: none;
+    z-index: 1000;
+    animation: slideDown 0.3s ease-out;
+}
+
+.notification.show {
+    display: block;
+}
+
+@keyframes slideDown {
+    from {
+        transform: translate(-50%, -100%);
+        opacity: 0;
+    }
+    to {
+        transform: translate(-50%, 0);
+        opacity: 1;
+    }
+}
